@@ -36,7 +36,7 @@ window.onload = function(){
             py = 0;
         }
 
-        ctx.fillStyle = "gray";
+        ctx.fillStyle = "black";
         ctx.fillRect(0,0, stage.width, stage.height);
 
         ctx.fillStyle = "red";
