@@ -116,11 +116,7 @@ window.onload = function(){
         };
 
     };
-
-    function gameOver() {
-        
-    };
-
+    
     function drawplacar() {
         // score
         ctx.font = '35px "VT323"';
