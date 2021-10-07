@@ -22,10 +22,8 @@ window.onload = function(){ //  quando a janela carregar...
     const audio_right = new Audio;
     audio_right.src = './audios/right.mp3';
 
-    const ground = new Image;
     const foodImg = new Image;
     const bombImg = new Image;
-    ground.src = './imgs/fundo.png';
     foodImg.src = './imgs/food.png';
     bombImg.src = './imgs/bomb.png';
 
