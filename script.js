@@ -9,11 +9,13 @@ window.onload = function(){
 
     var vx = vy = 0;
     var px =10;
-    var py = 15;
+    var py = 10;
     var tp = 30;
     var qp = 20;
-    var ax=ay=15;
-    var bx=by=12;
+    var ax=15;
+    var ay=10;
+    var bx=5;
+    var by=10;
     var score = 0;
     var best = 0;
 
@@ -50,6 +52,12 @@ window.onload = function(){
             ctx.fillRect(trail[i].x*tp, trail[i].y*tp, tp-1,tp-1);
             if (trail[i].x == px && trail[i].y == py)
             {
+                bx = 5;
+                by = 10;
+                ax = 15;
+                ay = 10;
+                py = 10;
+                px = 10;
                 vx = vy=0;
                 tail =5;
                 score = 0;
@@ -107,6 +115,10 @@ window.onload = function(){
                 break;
         };
 
+    };
+
+    function gameOver() {
+        
     };
 
     function drawplacar() {
