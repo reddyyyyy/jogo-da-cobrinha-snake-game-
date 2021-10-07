@@ -38,6 +38,10 @@ window.onload = function(){ //  quando a janela carregar...
     var ay=10;
     var bx=5;
     var by=10;
+    var bx2=1;
+    var by2=1;
+    var bx3=1;
+    var by3=2;
     var score = 0;
     var best = 0;
 
@@ -53,16 +57,16 @@ window.onload = function(){ //  quando a janela carregar...
             // paredes:
         if (px <0) {
             px = qp-1;
-        }
+        };
         if (px > qp-1) {                            
             px = 0;
-        }
+        };
         if (py < 0) {
             py = qp-1;
-        }
+        };
         if (py > qp-1) {
             py = 0;
-        }
+        };
 
             //desenha fundo:
         ctx.fillStyle = "rgb(4, 209, 4)";
@@ -71,9 +75,10 @@ window.onload = function(){ //  quando a janela carregar...
             // desenha maçã:
         ctx.drawImage(foodImg, ax*tp, ay*tp);
 
-            //desenhar bomba:
+            //desenhar bombas:
         ctx.drawImage(bombImg, bx*tp, by*tp);
-
+        ctx.drawImage(bombImg, bx2*tp, by2*tp);
+        ctx.drawImage(bombImg, bx3*tp, by3*tp);
 
             // desenhar a cobra:
         ctx.fillStyle = cor;
@@ -83,6 +88,10 @@ window.onload = function(){ //  quando a janela carregar...
             {
                 bx = 5;
                 by = 10;
+                bx2 = 1;
+                by2 = 1;
+                bx3 = 1;
+                by3 = 2;
                 ax = 15;
                 ay = 10;
                 py = 10;
@@ -92,13 +101,13 @@ window.onload = function(){ //  quando a janela carregar...
                 score = 0;
                 cor = 'green';
             };
-        }
+        };
 
         trail.push({x:px,y:py })
         //  diminuir rastro:
         while (trail.length > tail) {
             trail.shift();
-        }
+        };
 
 
             // IFs:
@@ -114,6 +123,10 @@ window.onload = function(){ //  quando a janela carregar...
             ay = Math.floor(Math.random()*qp);
             bx = Math.floor(Math.random()*qp);
             by = Math.floor(Math.random()*qp);
+            bx2 = Math.floor(Math.random()*qp) - bx;
+            by2 = Math.floor(Math.random()*qp) - by;
+            bx3 = Math.floor(Math.random()*qp) - bx2;
+            by3 = Math.floor(Math.random()*qp) - by2;
         };
 
         if (bx==px && by==py){
@@ -123,8 +136,40 @@ window.onload = function(){ //  quando a janela carregar...
             vx = vy=0;
             bx = Math.floor(Math.random()*qp);
             by = Math.floor(Math.random()*qp);
+            bx2 = Math.floor(Math.random()*qp) + bx;
+            by2 = Math.floor(Math.random()*qp) + by;
+            bx3 = Math.floor(Math.random()*qp) + bx2;
+            by3 = Math.floor(Math.random()*qp) + by2;
             gameover();
-        }
+        };
+
+        if (bx2==px && by2==py){
+            tail =5;
+            score = 0;
+            cor = 'green';
+            vx = vy=0;
+            bx = Math.floor(Math.random()*qp);
+            by = Math.floor(Math.random()*qp);
+            bx2 = Math.floor(Math.random()*qp) + bx;
+            by2 = Math.floor(Math.random()*qp) + by;
+            bx3 = Math.floor(Math.random()*qp) + bx2;
+            by3 = Math.floor(Math.random()*qp) + by2;
+            gameover();
+        };
+
+        if (bx3==px && by3==py){
+            tail =5;
+            score = 0;
+            cor = 'green';
+            vx = vy=0;
+            bx = Math.floor(Math.random()*qp);
+            by = Math.floor(Math.random()*qp);
+            bx2 = Math.floor(Math.random()*qp) + bx;
+            by2 = Math.floor(Math.random()*qp) + by;
+            bx3 = Math.floor(Math.random()*qp) + bx2;
+            by3 = Math.floor(Math.random()*qp) + by2;
+            gameover();
+        };
 
     };
 
@@ -182,4 +227,4 @@ window.onload = function(){ //  quando a janela carregar...
     };
 
     drawplacar();
-} // fim do script
+}; // fim do script
