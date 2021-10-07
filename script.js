@@ -8,6 +8,8 @@ window.onload = function(){ //  quando a janela carregar...
     setInterval(game, 80);
 
     // variaveis:
+    var cores = ['yellow','violet','blue','red','black','white','pink'];
+    cor = 'green';
     const vel = 1;
     const audio_come = new Audio;
     audio_come.src = './audios/eat.mp3';
@@ -74,7 +76,7 @@ window.onload = function(){ //  quando a janela carregar...
 
 
             // desenhar a cobra:
-        ctx.fillStyle = "green";
+        ctx.fillStyle = cor;
         for (var i = 0; i < trail.length; i++) {
             ctx.fillRect(trail[i].x*tp, trail[i].y*tp, tp-1,tp-1);
             if (trail[i].x == px && trail[i].y == py)
@@ -88,6 +90,7 @@ window.onload = function(){ //  quando a janela carregar...
                 vx = vy=0;
                 tail =5;
                 score = 0;
+                cor = 'green';
             };
         }
 
@@ -101,6 +104,7 @@ window.onload = function(){ //  quando a janela carregar...
             // IFs:
         if (ax==px && ay==py){
             audio_come.play();
+            cor = cores[Math.floor(Math.random() * cores.length)];
             tail++;
             score++;
             if (score > best) {
@@ -115,6 +119,7 @@ window.onload = function(){ //  quando a janela carregar...
         if (bx==px && by==py){
             tail =5;
             score = 0;
+            cor = 'green';
             vx = vy=0;
             bx = Math.floor(Math.random()*qp);
             by = Math.floor(Math.random()*qp);
