@@ -22,6 +22,13 @@ window.onload = function(){ //  quando a janela carregar...
     const audio_right = new Audio;
     audio_right.src = './audios/right.mp3';
 
+    const ground = new Image;
+    const foodImg = new Image;
+    const bombImg = new Image;
+    ground.src = './imgs/fundo.png';
+    foodImg.src = './imgs/food.png';
+    bombImg.src = './imgs/bomb.png';
+
     var vx = vy = 0;
     var px =10;
     var py = 10;
@@ -58,16 +65,14 @@ window.onload = function(){ //  quando a janela carregar...
         }
 
             //desenha fundo:
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "rgb(4, 209, 4)";
         ctx.fillRect(0,0, stage.width, stage.height);
 
             // desenha maçã:
-        ctx.fillStyle = "red";
-        ctx.fillRect(ax*tp, ay*tp, tp,tp);
+        ctx.drawImage(foodImg, ax*tp, ay*tp);
 
             //desenhar bomba:
-        ctx.fillStyle = "blue";
-        ctx.fillRect(bx*tp, by*tp, tp,tp);
+        ctx.drawImage(bombImg, bx*tp, by*tp);
 
 
             // desenhar a cobra:
